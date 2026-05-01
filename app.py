@@ -24,18 +24,15 @@ def chat():
         json={
             "model": "openai/gpt-4o-mini",
             "messages": [
-                {"role": "system", "content": "Tu es Jarvis, un assistant intelligent, clair et utile."},
                 {"role": "user", "content": user_message}
             ]
         }
     )
 
-    try:
-        answer = response.json()["choices"][0]["message"]["content"]
-    except:
-        answer = "Erreur IA"
-
-    return jsonify({"response": answer})
+    return jsonify({
+        "status_code": response.status_code,
+        "text": response.text
+    })
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))

@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import requests
 import os
 
-OPENROUTER_API_KEY = "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"
+OPENROUTER_API_KEY = "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"
 
 app = Flask(__name__)
 
